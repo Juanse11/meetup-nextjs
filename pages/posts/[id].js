@@ -1,3 +1,6 @@
+import { Box } from "@chakra-ui/core";
+import ProductCard from "../../components/ProductCard";
+
 export async function getStaticPaths() {
   const res = await fetch(
     "https://my-json-server.typicode.com/typicode/demo/posts"
@@ -28,8 +31,8 @@ export async function getStaticProps({ params }) {
 export default function Product({ product }) {
   // Render product
   return (
-    <div>
-      <h1>{product.title}</h1>
-    </div>
+    <Box maxWidth="1200px" width="100%" margin="0 auto">
+      <ProductCard {...product} />
+    </Box>
   );
 }
